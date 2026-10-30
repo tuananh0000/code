@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI English Prompt Architect</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .card-radio:checked + div {
+            border-color: #3b82f6;
+            background-color: #eff6ff;
+            box-shadow: 0 0 0 2px #bfdbfe;
+        }
+        .card-radio:checked + div .radio-indicator {
+            background-color: #3b82f6;
+            border-color: #3b82f6;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+
+    <div class="max-w-4xl mx-auto space-y-8">
+
+        <!-- Header -->
+        <header class="text-center space-y-2">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-700">
+                PROMPT GENERATOR
+            </span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                Thiết Kế Prompt Học Viết Tiếng Anh
+            </h1>
+            <p class="text-slate-600 text-sm sm:text-base max-w-xl mx-auto">
+                Tự động hóa sinh prompt cho ChatGPT / Claude được cá nhân hóa theo đúng trình độ, thể loại và mục tiêu của bạn.
+            </p>
+        </header>
+
+        <!-- Main Form Card -->
+        <main class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-8">
+
+            <!-- 1. Trình độ tiếng Anh -->
+            <section class="space-y-4">
+                <div class="flex items-center gap-2">
+                    <span class="flex items-center justify-center w-6 h-6 rounded-full bg-blue-600 text-white text-xs font-bold">1</span>
+                    <h2 class="font-bold text-slate-900 text-lg">Trình độ hiện tại của bạn</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <label class="cursor-pointer relative">
+                        <input type="radio" name="level" value="beginner" class="sr-only card-radio" checked>
+                        <div class="h-full p-4 border border-slate-200 rounded-xl transition-all duration-200 hover:border-slate-300">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="font-semibold text-slate-800">Cơ bản (A1 - A2)</span>
+                                <span class="w-4 h-4 rounded-full border border-slate-300 radio-indicator inline-block"></span>
+                            </div>
+                            <p class="text-xs text-slate-500">Mới học, vốn từ ít, cần giải thích đơn giản bằng tiếng Việt.</p>
+                        </div>
+                    </label>
+
+                    <label class="cursor-pointer relative">
+                        <input type="radio" name="level" value="intermediate" class="sr-only card-radio">
+                        <div class="h-full p-4 border border-slate-200 rounded-xl transition-all duration-200 hover:border-slate-300">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="font-semibold text-slate-800">Trung cấp (B1 - B2)</span>
+                                <span class="w-4 h-4 rounded-full border border-slate-300 radio-indicator inline-block"></span>
+                            </div>
+                            <p class="text-xs text-slate-500">Đã viết được câu hoàn chỉnh, muốn câu mượt mà, collocations tự nhiên.</p>
+                        </div>
+                    </label>
+
+                    <label class="cursor-pointer relative">
+                        <input type="radio" name="level" value="advanced" class="sr-only card-radio">
+                        <div class="h-full p-4 border border-slate-200 rounded-xl transition-all duration-200 hover:border-slate-300">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="font-semibold text-slate-800">Nâng cao (C1 - C2 / IELTS)</span>
+                                <span class="w-4 h-4 rounded-full border border-slate-300 radio-indicator inline-block"></span>
+                            </div>
+                            <p class="text-xs text-slate-500">Tối ưu sắc thái từ vựng (nuances), tính học thuật và văn phong bản xứ.</p>
+                        </div>
+                    </label>
+                </div>
+            </section>
+
+            <!-- 2. Thể loại muốn viết -->
+            <section class="space-y-4">
+                <div class="flex items-center gap-2">
+                    <span class="flex items-center justify-center w-6 h-6 rounded-full bg-blue-600 text-white text-xs font-bold">2</span>
+                    <h2 class="font-bold text-slate-900 text-lg">Thể loại bài viết bạn hướng tới</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    <label class="cursor-pointer relative">
+                        <input type="radio" name="genre" value="email" class="sr-only card-radio" checked>
+                        <div class="h-full p-3.5 border border-slate-200 rounded-xl transition-all duration-200 hover:border-slate-300 flex items-center justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <span class="text-lg">📧</span>
+                                <span class="text-sm font-medium text-slate-800">Email công việc / Workplace</span>
+                            </div>
+                            <span class="w-4 h-4 rounded-full border border-slate-300 radio-indicator flex-shrink-0"></span>
+                        </div>
+                    </label>
+
+                    <label class="cursor-pointer relative">
+                        <input type="radio" name="genre" value="essay" class="sr-only card-radio">
+                        <div class="h-full p-3.5 border border-slate-200 rounded-xl transition-all duration-200 hover:border-slate-300 flex items-center justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <span class="text-lg">🎓</span>
+                                <span class="text-sm font-medium text-slate-800">Bài luận học thuật / IELTS</span>
+                            </div>
+                            <span class="w-4 h-4 rounded-full border border-slate-300 radio-indicator flex-shrink-0"></span>
+                        </div>
+                    </label>
+
+                    <label class="cursor-pointer relative">
+                        <input type="radio" name="genre" value="casual" class="sr-only card-radio">
+                        <div class="h-full p-3.5 border border-slate-200 rounded-xl transition-all duration-200 hover:border-slate-300 flex items-center justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <span class="text-lg">💬</span>
+                                <span class="text-sm font-medium text-slate-800">Chat / Mạng xã hội</span>
+                            </div>
+                            <span class="w-4 h-4 rounded-full border border-slate-300 radio-indicator flex-shrink-0"></span>
+                        </div>
+                    </label>
+
+                    <label class="cursor-pointer relative">
+                        <input type="radio" name="genre" value="story" class="sr-only card-radio">
+                        <div class="h-full p-3.5 border border-slate-200 rounded-xl transition-all duration-200 hover:border-slate-300 flex items-center justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <span class="text-lg">📖</span>
+                                <span class="text-sm font-medium text-slate-800">Kể chuyện / Blog cá nhân</span>
+                            </div>
+                            <span class="w-4 h-4 rounded-full border border-slate-300 radio-indicator flex-shrink-0"></span>
+                        </div>
+                    </label>
+
+                    <label class="cursor-pointer relative">
+                        <input type="radio" name="genre" value="technical" class="sr-only card-radio">
+                        <div class="h-full p-3.5 border border-slate-200 rounded-xl transition-all duration-200 hover:border-slate-300 flex items-center justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <span class="text-lg">⚙️</span>
+                                <span class="text-sm font-medium text-slate-800">Tài liệu kỹ thuật / Báo cáo</span>
+                            </div>
+                            <span class="w-4 h-4 rounded-full border border-slate-300 radio-indicator flex-shrink-0"></span>
+                        </div>
+                    </label>
+                </div>
+            </section>
+
+            <!-- 3. Mục tiêu học tập / Chế độ hoạt động -->
+            <section class="space-y-4">
+                <div class="flex items-center gap-2">
+                    <span class="flex items-center justify-center w-6 h-6 rounded-full bg-blue-600 text-white text-xs font-bold">3</span>
+                    <h2 class="font-bold text-slate-900 text-lg">Mục tiêu sử dụng của bạn</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <label class="cursor-pointer relative">
+                        <input type="radio" name="goal" value="proofread" class="sr-only card-radio" checked>
+                        <div class="h-full p-4 border border-slate-200 rounded-xl transition-all duration-200 hover:border-slate-300">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="font-semibold text-slate-800">1. Sửa lỗi chính tả & ngữ pháp</span>
+                                <span class="w-4 h-4 rounded-full border border-slate-300 radio-indicator inline-block"></span>
+                            </div>
+                            <p class="text-xs text-slate-500">Chỉ ra lỗi sai, giải thích nguyên nhân và cung cấp bảng đối chiếu câu đúng.</p>
+                        </div>
+                    </label>
+
+                    <label class="cursor-pointer relative">
+                        <input type="radio" name="goal" value="upgrade" class="sr-only card-radio">
+                        <div class="h-full p-4 border border-slate-200 rounded-xl transition-all duration-200 hover:border-slate-300">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="font-semibold text-slate-800">2. Nâng cấp bài viết</span>
+                                <span class="w-4 h-4 rounded-full border border-slate-300 radio-indicator inline-block"></span>
+                            </div>
+                            <p class="text-xs text-slate-500">Giữ nguyên ý chính nhưng viết lại theo 2-3 tone giọng chuyên nghiệp & tự nhiên hơn.</p>
+                        </div>
+                    </label>
+
+                    <label class="cursor-pointer relative">
+                        <input type="radio" name="goal" value="practice" class="sr-only card-radio">
+                        <div class="h-full p-4 border border-slate-200 rounded-xl transition-all duration-200 hover:border-slate-300">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="font-semibold text-slate-800">3. Luyện viết tương tác</span>
+                                <span class="w-4 h-4 rounded-full border border-slate-300 radio-indicator inline-block"></span>
+                            </div>
+                            <p class="text-xs text-slate-500">AI đóng vai trò Coach: Đưa ra đề bài, bạn viết từng phần, AI chữa và thử thách tiếp.</p>
+                        </div>
+                    </label>
+                </div>
+            </section>
+
+            <!-- 4. Ghi chú cá nhân (Optional) -->
+            <section class="space-y-2">
+                <label for="extraNotes" class="text-sm font-semibold text-slate-700 flex items-center justify-between">
+                    <span>Ghi chú thêm (Tùy chọn)</span>
+                    <span class="text-xs text-slate-400 font-normal">Ví dụ: Tập trung vào thì quá khứ, văn phong ngoại giao...</span>
+                </label>
+                <input type="text" id="extraNotes" placeholder="Nhập yêu cầu riêng (nếu có)..."
+                       class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm">
+            </section>
+
+            <!-- CTA Button -->
+            <div class="pt-2">
+                <button type="button" id="btnGenerate"
+                        class="w-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold py-3.5 px-6 rounded-xl transition-colors duration-150 shadow-sm flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    <span>Tạo Prompt Hoàn Chỉnh</span>
+                </button>
+            </div>
+
+        </main>
+
+        <!-- Result Box (Hidden by default) -->
+        <section id="resultSection" class="hidden bg-slate-900 rounded-2xl shadow-xl border border-slate-800 overflow-hidden transition-all duration-300">
+            <div class="bg-slate-800/70 px-6 py-4 flex items-center justify-between border-b border-slate-800">
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                    <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                    <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                    <span class="ml-2 text-xs font-mono text-slate-400">generated_prompt.md</span>
+                </div>
+                <button id="btnCopy" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                    </svg>
+                    <span id="copyText">Sao chép prompt</span>
+                </button>
+            </div>
+
+            <div class="p-6">
+                <pre id="promptOutput" class="text-slate-300 text-sm font-mono whitespace-pre-wrap break-words selection:bg-blue-500 selection:text-white leading-relaxed"></pre>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Knowledge Base cho việc sinh Prompt
+        const PROMPT_CONFIG = {
+            levels: {
+                beginner: {
+                    name: "Beginner (A1 - A2)",
+                    pedagogy: "Sử dụng câu từ đơn giản. Mọi giải thích ngữ pháp và từ vựng PHẢI bằng tiếng Việt rõ ràng, dễ hiểu. Khích lệ tinh thần người học và chỉ sửa những lỗi sai căn bản, tránh nhồi nhét quá nhiều kiến thức học thuật cùng lúc."
+                },
+                intermediate: {
+                    name: "Intermediate (B1 - B2)",
+                    pedagogy: "Tập trung sửa sự mạch lạc (coherence), cách dùng cụm từ cố định (collocations) và cấu trúc câu phức. Giải thích lỗi sai ngắn gọn bằng tiếng Anh đơn giản (có thể thêm chú thích tiếng Việt nếu là điểm ngữ pháp phức tạp)."
+                },
+                advanced: {
+                    name: "Advanced / Academic (C1 - C2 / IELTS 7.0+)",
+                    pedagogy: "Phân tích chuyên sâu về sắc thái từ vựng (nuances), nhịp điệu bài viết, tính liên kết logic và văn phong bản xứ. Loại bỏ hoàn toàn các cấu trúc diễn đạt gượng gạo hoặc sáo rỗng (clichés)."
+                }
+            },
+            genres: {
+                email: "Email công việc / Giao tiếp công sở (Professional Workplace Email)",
+                essay: "Bài luận học thuật / IELTS Writing Task 2 (Academic Essay)",
+                casual: "Giao tiếp hàng ngày / Tin nhắn mạng xã hội (Casual Conversation & Social Media)",
+                story: "Kể chuyện cá nhân / Bài viết Blog (Storytelling & Personal Blog)",
+                technical: "Tài liệu kỹ thuật / Báo cáo phân tích chuyên sâu (Technical & Formal Report)"
+            },
+            goals: {
+                proofread: {
+                    name: "Sửa lỗi chính tả & ngữ pháp (Proofreading & Correction)",
+                    taskDescription:
+`[NHIỆM VỤ CHI TIẾT]:
+1. Xác định và chỉ rõ tất cả các lỗi sai về: Ngữ pháp (Grammar), Từ vựng (Lexical Resource) và Dấu câu/Chính tả (Punctuation/Spelling).
+2. Trình bày dưới dạng Bảng Markdown:
+   | Câu gốc của tôi | Phiên bản đã sửa | Phân tích lỗi sai & Cách nhớ |
+3. Cuối cùng, đưa ra lại toàn bộ bài viết hoàn chỉnh nhưng VẪN GIỮ NGUYÊN cấu trúc và ý đồ tự nhiên ban đầu của tôi.`
+                },
+                upgrade: {
+                    name: "Nâng cấp văn phong & Từ vựng (Polishing & Enhancing)",
+                    taskDescription:
+`[NHIỆM VỤ CHI TIẾT]:
+1. Giữ nguyên ý tưởng cốt lõi của bài viết, nhưng nâng tầm cách diễn đạt.
+2. Cung cấp 2 phiên bản viết lại:
+   - Phiên bản A: Tự nhiên, trôi chảy như người bản xứ (Natural Native Flow).
+   - Phiên bản B: Trang trọng, học thuật hoặc chuyên nghiệp hơn (Formal / Professional).
+3. Liệt kê danh sách các Collocations, Idioms hoặc Cấu trúc ngữ pháp hay đã được áp dụng trong bài viết lại kèm theo giải nghĩa.`
+                },
+                practice: {
+                    name: "Huấn luyện viên luyện viết tương tác (Interactive Writing Coach)",
+                    taskDescription:
+`[NHIỆM VỤ CHI TIẾT]:
+1. Bạn là người huấn luyện (Coach). TUYỆT ĐỐI KHÔNG viết toàn bộ bài giúp tôi ngay từ đầu.
+2. Hãy đưa ra 1 tình huống/đề tài cụ thể thuộc thể loại đã chọn và hướng dẫn tôi viết câu/đoạn mở đầu.
+3. Tôi sẽ trả lời từng đoạn một. Với mỗi đoạn tôi gửi:
+   - Nhận xét nhanh: 1 điểm làm tốt + 1 điểm cần cải thiện ngay.
+   - Sửa nhanh câu đó (nếu có lỗi).
+   - Đặt câu hỏi tiếp theo để hướng dẫn tôi viết đoạn kế tiếp.`
+                }
+            }
+        };
+
+        // Lấy các element DOM
+        const btnGenerate = document.getElementById('btnGenerate');
+        const btnCopy = document.getElementById('btnCopy');
+        const copyText = document.getElementById('copyText');
+        const resultSection = document.getElementById('resultSection');
+        const promptOutput = document.getElementById('promptOutput');
+
+        // Hàm sinh Prompt
+        function buildPrompt() {
+            const level = document.querySelector('input[name="level"]:checked').value;
+            const genre = document.querySelector('input[name="genre"]:checked').value;
+            const goal = document.querySelector('input[name="goal"]:checked').value;
+            const extraNotes = document.getElementById('extraNotes').value.trim();
+
+            const levelData = PROMPT_CONFIG.levels[level];
+            const genreData = PROMPT_CONFIG.genres[genre];
+            const goalData = PROMPT_CONFIG.goals[goal];
+
+            let prompt = `# VAI TRÒ
+Bạn là một Giảng viên Chuyên gia Ngôn ngữ Tiếng Anh và Huấn luyện viên Viết (Expert ESL Writing Coach) bản xứ, tận tâm và có phương pháp sư phạm hiện đại.
+
+# HỒ SƠ NGƯỜI HỌC
+- Trình độ hiện tại: ${levelData.name}
+- Thể loại đang tập trung: ${genreData}
+- Mục tiêu phiên học: ${goalData.name}
+${extraNotes ? `- Yêu cầu bổ sung của học viên: ${extraNotes}\n` : ''}
+# NGUYÊN TẮC GIẢNG DẠY (PEDAGOGY RULES)
+- ${levelData.pedagogy}
+- Giữ thái độ phản hồi tích cực, mang tính xây dựng nhưng rõ ràng, chuẩn xác.
+- Sử dụng Markdown với tiêu đề rõ ràng, bullet points hoặc bảng để trình bày mạch lạc.
+
+${goalData.taskDescription}
+
+---
+# BƯỚC BẮT ĐẦU:
+Hãy phản hồi ngắn gọn bằng một lời chào thân thiện, tóm tắt lại thể loại và mục tiêu của chúng ta, sau đó:
+${goal === 'practice'
+  ? '👉 Hãy đưa ra thử thách/đề bài viết đầu tiên cho tôi!'
+  : '👉 Yêu cầu tôi gửi đoạn văn bản/bài viết của mình vào đây để bạn bắt đầu phân tích.'}`;
+
+            return prompt;
+        }
+
+        // Event: Bấm nút tạo Prompt
+        btnGenerate.addEventListener('click', () => {
+            const prompt = buildPrompt();
+            promptOutput.textContent = prompt;
+            resultSection.classList.remove('hidden');
+
+            // Cuộn mượt xuống kết quả
+            resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        // Event: Bấm nút copy
+        btnCopy.addEventListener('click', async () => {
+            const textToCopy = promptOutput.textContent;
+            try {
+                await navigator.clipboard.writeText(textToCopy);
+                copyText.textContent = "Đã chép vào bộ nhớ!";
+                btnCopy.classList.replace('bg-blue-600', 'bg-emerald-600');
+                btnCopy.classList.replace('hover:bg-blue-500', 'hover:bg-emerald-500');
+                setTimeout(() => {
+                    copyText.textContent = "Sao chép prompt";
+                    btnCopy.classList.replace('bg-emerald-600', 'bg-blue-600');
+                    btnCopy.classList.replace('hover:bg-emerald-500', 'hover:bg-blue-500');
+                }, 2000);
+            } catch (err) {
+                alert("Không thể sao chép, bạn hãy bôi đen văn bản để copy thủ công.");
+            }
+        });
+    </script>
+</body>
+</html>
